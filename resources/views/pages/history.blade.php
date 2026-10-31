@@ -1,4 +1,4 @@
-<x-layouts.app title="Order History" subtitle="All orders, newest first. Filter by customer email to narrow down.">
+<x-layouts.app title="Order History" subtitle="All orders, newest first. Click an order to see what was ordered.">
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="row g-2 align-items-end mb-3">
@@ -21,6 +21,25 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-center mt-3" id="pager"></div>
+        </div>
+    </div>
+
+    {{-- Order details popup --}}
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="omTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="omTitle"></h5>
+                        <div class="small text-muted" id="omDate"></div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="omBody"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
