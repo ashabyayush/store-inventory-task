@@ -6,9 +6,9 @@ protection against overselling under concurrent requests.
 
 > Take-home assignment for Mallow Technologies (Laravel Developer).
 
-- **Repository:** [your GitHub link]
-- **Screen recording:** [your video link]
-- **AI prompt log:** see the [`/prompts`](./prompts) folder
+- **Repository:** [[your GitHub link](https://github.com/ashabyayush/store-inventory-task.git)]
+- **Screen recording:** [[your video link](https://drive.google.com/file/d/1zYbS3KhTKR7JJC7wea1adQg6ijpP4ziF/view?usp=drive_link)]
+
 
 ---
 
