@@ -1,0 +1,151 @@
+:root {
+  --bg: #e6eef9;
+  --primary: #3b6ea5;
+  --text: #1f2937;
+  --danger: #b91c1c;
+
+  /* sidebar (same blues as the login screen) */
+  --side-from: #1f3f66;
+  --side-to: #2f5a88;
+
+  /* table row hover */
+  --row-hover: #e9f1fb;
+}
+
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--text); }
+a { color: var(--primary); }
+
+/* theme overrides (works on every Bootstrap 5.x) */
+.btn-primary { background-color: var(--primary); border-color: var(--primary); }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+.btn-check:checked + .btn-primary { background-color: #325d8c; border-color: #325d8c; }
+.btn-outline-primary { color: var(--primary); border-color: var(--primary); }
+.btn-outline-primary:hover, .btn-outline-primary:active {
+  background-color: var(--primary); border-color: var(--primary); color: #fff;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #7ea3cc; box-shadow: 0 0 0 .2rem rgba(59, 110, 165, .2);
+}
+.fw-semibold { font-weight: 600 !important; }
+
+/* layout */
+.app-main { min-width: 0; }
+.page-container { max-width: 1100px; }
+
+/* brand (top bar on mobile, white background) */
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.logo { width: 38px; height: 38px; flex-shrink: 0; border-radius: 10px; background: var(--primary);
+  color: #fff; display: grid; place-items: center; font-weight: 700; }
+
+/* ---------- sidebar: dark blue ---------- */
+.sidebar.offcanvas {
+  width: 260px; color: #fff; border: 0;
+  background: linear-gradient(180deg, var(--side-from) 0%, var(--side-to) 100%);
+}
+.sidebar .offcanvas-body { display: flex; flex-direction: column; padding: 20px 14px; overflow-y: auto; }
+.sidebar .offcanvas-header { border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.sidebar .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+
+@media (min-width: 992px) {
+  .sidebar-col {
+    width: 240px; flex-shrink: 0; height: 100vh; position: sticky; top: 0;
+    background: linear-gradient(180deg, var(--side-from) 0%, var(--side-to) 100%);
+  }
+  .sidebar.offcanvas {
+    position: static; width: 100%; height: 100%; transition: none;
+    visibility: visible !important; transform: none !important;
+  }
+  .sidebar .offcanvas-header { display: none; }
+}
+
+.sidebar .brand b { color: #fff; }
+.sidebar .brand .text-muted, .sidebar .text-muted { color: rgba(255, 255, 255, .65) !important; }
+.sidebar .logo { background: #fff; color: var(--side-from); }
+.menu-label { font-size: 11px; letter-spacing: .08em; color: rgba(255, 255, 255, .5); margin: 0 10px 8px; }
+
+.sidebar .nav-link {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  border-radius: 8px; color: rgba(255, 255, 255, .85); font-size: 15px;
+  transition: background .15s, color .15s;
+}
+.sidebar .nav-link:hover, .sidebar .nav-link:focus { background: rgba(255, 255, 255, .12); color: #fff; }
+.sidebar .nav-link.active {
+  background: #fff; color: var(--side-from); font-weight: 600; box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+
+.side-foot { border-top: 1px solid rgba(255, 255, 255, .18); padding-top: 12px; margin-top: 24px; color: rgba(255, 255, 255, .85); }
+.side-foot b { color: #fff; }
+.side-foot .btn-link { color: #ffb4b4 !important; }
+.side-foot .btn-link:hover { color: #fff !important; }
+
+/* ---------- tables: light blue row hover ---------- */
+.table-hover > tbody > tr:hover > * {
+  --bs-table-accent-bg: var(--row-hover);
+  --bs-table-hover-bg: var(--row-hover);
+  --bs-table-bg-state: var(--row-hover);
+  background-color: var(--row-hover);
+  color: inherit;
+  box-shadow: inset 0 0 0 9999px var(--row-hover);
+}
+
+/* order history grid */
+.order-row { cursor: pointer; }
+.detail-row > td { background: #f8f9fa; }
+.table-hover > tbody > tr.detail-row:hover > * {
+  background-color: #f8f9fa; box-shadow: none; --bs-table-accent-bg: #f8f9fa; --bs-table-bg-state: #f8f9fa;
+}
+
+/* misc */
+.low { color: var(--danger); font-weight: 600; }
+code { font-size: 12px; color: #6b7280; }
+.stat .value { font-size: 1.5rem; font-weight: 700; }
+.low-card { background: #fef2f2; }
+
+/* login (kept for old pages; new login uses login.css) */
+.auth-body { background: var(--bg); min-height: 100vh; }
+.auth-card { width: 100%; max-width: 420px; }
+
+/* ---------- dashboard stat cards ---------- */
+.stat-card {
+  --tint: #eaf2fc; --accent: #3b6ea5; --edge: #cfe0f5;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  height: 100%; padding: 20px 22px; border-radius: 14px;
+  background: var(--tint); border: 1px solid var(--edge);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31, 41, 55, .08); }
+
+.stat-label { font-size: .85rem; font-weight: 600; color: #4b5563; margin-bottom: 4px; }
+.stat-value { font-size: 1.9rem; font-weight: 800; line-height: 1.1; color: var(--accent); }
+
+.stat-icon {
+  width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px;
+  display: grid; place-items: center; color: #fff; background: var(--accent);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+}
+
+.tone-blue   { --tint: #eaf2fc; --accent: #3b6ea5; --edge: #cfe0f5; }
+.tone-green  { --tint: #e8f7ef; --accent: #1f9d6b; --edge: #c5ebd8; }
+.tone-purple { --tint: #f0ebfb; --accent: #7c5cc4; --edge: #dcd0f3; }
+.tone-orange { --tint: #fff3e6; --accent: #e08a1e; --edge: #fadcb8; }
+.tone-teal   { --tint: #e6f6f7; --accent: #1a98a3; --edge: #bfe6e9; }
+.tone-red    { --tint: #fdecec; --accent: #d64545; --edge: #f6c7c7; }
+.tone-slate  { --tint: #f1f3f6; --accent: #6b7a90; --edge: #dde2ea; }
+
+/* ---------- new order: product lines ---------- */
+.line-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px 130px;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+.btn-remove {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%;
+}
+.btn-remove:disabled { opacity: .45; cursor: not-allowed; }
+
+@media (max-width: 767.98px) {
+  .line-grid { grid-template-columns: 1fr 1fr; }
+  .line-grid .f-product { grid-column: 1 / -1; }
+}
